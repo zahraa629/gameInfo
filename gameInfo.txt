@@ -1,0 +1,20 @@
+PUBGMobile:Android:Entertainment:Paid:Online:NotForKids
+FreeFire:Android:Horror:Free:Offline:ForKids
+SubwaySurfers:iOS:Action:Free:Online:ForKids
+ClashofClans:iOS:Horror:Free:Offline:ForKids
+BrawlStars:Android:Action:Paid:Offline:ForKids
+CandyCrush Saga:Android:Entertainment:Paid:Offline:NotForKids
+AmongUs:iOS:Entertainment:Paid:Offline:NotForKids
+CallofDuty Mobile:iOS:Horror:Free:Online:ForKids
+GenshinImpact:Android:Horror:Free:Online:ForKids
+Roblox:Android:Horror:Paid:Offline:NotForKids
+PokemonGO:Android:Entertainment:Paid:Online:ForKids
+TempleRun:iOS:Action:Free:Offline:NotForKids
+8 BallPool:Android:Action:Free:Online:ForKids
+DreamLeague Soccer:Android:Horror:Paid:Online:ForKids
+FIFAMobile:Android:Action:Free:Online:NotForKids
+MobileLegends:iOS:Entertainment:Free:Online:ForKids
+HayDay:Android:Horror:Paid:Offline:ForKids
+CoinMaster:iOS:Action:Free:Offline:NotForKids
+PlagueInc.:iOS:Horror:Paid:Online:NotForKids
+TheSimsFreePlay:Android:Entertainment:Free:Online:NotForKids
