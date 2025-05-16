@@ -12,7 +12,7 @@ display_game_files() {
    } 
 # Function to check whether a game is Free or NotFree 
 check_payment_status() {
-    echo "Enter the name of the game:"
+    echo "Enter the game name to check if it is Free or NotFree:"
     read game_name
 
     line=$(grep -i "$game_name" "$file")
@@ -32,7 +32,7 @@ check_payment_status() {
 
 # Function to check platform (Android/iOS)
 check_platform() {
-    echo "Enter the name of the game:"
+    echo "Enter the game name to check its platform (Android/iOS):"
     read game_name
 
     # Search for the game in the file
@@ -49,7 +49,7 @@ check_platform() {
 
 # Function to check game type (Entertainment/Horror/Action)
 check_game_type() {
-    echo "Enter the name of the game:"
+    echo "Enter the game name to check its type (Entertainment/Horror/Action):"
     read game_name
 
     # Search for the game in the file
@@ -78,7 +78,7 @@ check_game_type
 
 # Function to check if game requires internt
 check_internet_requirement() {
-echo "Enter the name of the game:"
+echo "Enter the game name to check if it requires internet:"
 read game_name
 #look for the line that containes the name of the game
 line=$(grep -i "^$game_name:" "$file")
@@ -92,7 +92,7 @@ echo "Game not found"
 }
 # Function to check if game is suitable for kids
 check_kids_suitability() {
-    echo "Enter the name of the game:"
+    echo "Enter the game name to check if it is suitable for kids:"
     read game_name
 
     # Search for the line containing the game name
