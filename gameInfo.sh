@@ -82,7 +82,7 @@ echo "Enter the name of the game:"
 read game_name
 #look for the line that containes the name of the game
 line=$(grep -i "^$game_name:" "$file")
-if [-z "$line" ]; then
+if [ -z "$line" ]; then
 echo "Game not found"
   else
 # Extract The fifth filed whether the game requires internt
