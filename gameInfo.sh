@@ -51,9 +51,48 @@ check_payment_status() {
     fi
 }
 
+# Function to check platform (Android/iOS)
+check_platform() {
+    echo "Enter the name of the game:"
+    read game_name
+
+    # Search for the game in the file
+    line=$(grep -i "$game_name" "$file")
+
+    if [ -z "$line" ]; then
+        echo "Game not found."
+    else
+        # Extract the platform 2nd field using awk
+        platform=$(echo "$line" | awk -F ":" '{print $2}')
+        echo "The game '$game_name' is available on: $platform"
+    fi
+}
+
+# Function to check game type (Entertainment/Horror/Action)
+check_game_type() {
+    echo "Enter the name of the game:"
+    read game_name
+
+    # Search for the game in the file
+    line=$(grep -i "$game_name" "$file")
+
+    if [ -z "$line" ]; then
+        echo "Game not found."
+    else
+        # Extract the game type 3rd field using cut
+        game_type=$(echo "$line" | cut -d ":" -f3)
+        echo "The game '$game_name' type is: $game_type"
+    fi
+}
 
 # Call the function to display all available game files in the folder
 display_game_files
 
 # Call the function to check if the game is Free or Paid
 check_payment_status
+
+# Call the function to check the platform (Android/iOS)
+check_platform
+
+# Call the function to check the game type (Entertainment/Horror/Action)
+check_game_type
