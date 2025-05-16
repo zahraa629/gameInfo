@@ -96,3 +96,41 @@ check_platform
 
 # Call the function to check the game type (Entertainment/Horror/Action)
 check_game_type
+
+# Function to check if game requires internt
+check_internet_requirement() {
+echo "Enter the name of the game:"
+read game_name
+#look for the line that containes the name of the game
+line=$(grep -i "^$game_name:" "$file")
+if [-z "$line" ]; then
+echo "Game not found"
+  else
+# Extract The fifth filed whether the game requires internt
+       requires_net=$(echo "$line" | cut -d ":" -f5)
+        echo "The game '$game_name' requires internet: $requires_net"
+    fi
+}
+# Function to check if game is suitable for kids
+check_kids_suitability() {
+    echo "Enter the name of the game:"
+    read game_name
+
+    # Search for the line containing the game name
+    line=$(grep -i "^$game_name:" "$file")
+
+    if [ -z "$line" ]; then
+        echo "Game not found."
+    else
+        # Extract the 6th field: whether the game is suitable for kids
+        suitable=$(echo "$line" | cut -d ":" -f6)
+        echo "The game '$game_name' is suitable for kids: $suitable"
+    fi
+}
+
+
+#calling the function to check if the game requires internt
+check_internet_requirement
+#calling the function to check if the game is suitable for kids
+check_kids_suitability
+
