@@ -1,52 +1,31 @@
 #!/bin/bash
-
-# Define the path to the directory that contains game files
-games_dir="./games"
-
-# Function to display all available game files inside the directory
-display_game_files() {
-    # Check if the directory exists
-    if [ ! -d "$games_dir" ]; then
-        echo "Error: The games directory does not exist!"
-        exit 1
-    fi
-
-    # Store the list of files in an array
-    game_files=($(ls "$games_dir"))
-
-    # Check if the directory is empty
-    if [ ${#game_files[@]} -eq 0 ]; then
-        echo "No games found in the directory."
-        exit 1
-    fi
-
-    # Print the list of game files
-    echo "Available games:"
-    for game in "${game_files[@]}"; do
-        echo "$game"
- done 
- }
-  # Define the path to the game info file
 file="gameInfo.txt"
+display_game_files() {
+    if [ ! -f "$file" ]; then
+        echo "Error: $file not found!"
+        exit 1
+    fi
 
-
-# Function to check whether a game is Free or Paid
+    echo "Available games:"
+    # Read each line, cut the game name (first field), and print it
+    cut -d ":" -f1 "$file" | sort
+   } 
+# Function to check whether a game is Free or NotFree 
 check_payment_status() {
-    # Ask the user to enter the game name
     echo "Enter the name of the game:"
     read game_name
 
-    # Search for the game in the file (case-insensitive)
     line=$(grep -i "$game_name" "$file")
 
-    # If the game is not found
     if [ -z "$line" ]; then
         echo "Game not found."
     else
-        # Extract the 4th field which represents payment status
+        # Extract the 4th field (payment status)
         payment=$(echo "$line" | cut -d ":" -f4)
-        
-        # Display the result
+
+        # Use sed to replace "Paid" with "NotFree"
+        payment=$(echo "$payment" | sed 's/Paid/NotFree/')
+
         echo "The game '$game_name' is: $payment"
     fi
 }
