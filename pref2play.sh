@@ -1,6 +1,7 @@
 #!/bin/bash
 
 file="gameInfo.txt"
+#Lujain
 
 #Display
 display_game_files() {
@@ -37,6 +38,8 @@ show_payment_status() {
     echo "Payment status: $status"
 }
 
+#Zahraa
+
 # Function to show whether the game requires internet
 show_internet_requirement() {
     echo "Requires internet: $(echo "$1" | cut -d ":" -f5)"
@@ -70,6 +73,9 @@ while true; do
         break
     fi
 done
+
+#Refan
+
 # Display the menu using echo + read + case
 while true; do
     echo "Menu:"
