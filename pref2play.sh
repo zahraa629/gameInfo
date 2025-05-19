@@ -37,3 +37,37 @@ show_payment_status() {
     echo "Payment status: $status"
 }
 
+# Function to show whether the game requires internet
+show_internet_requirement() {
+    echo "Requires internet: $(echo "$1" | cut -d ":" -f5)"
+}
+
+# Function to show whether the game is suitable for kids
+show_kids_suitability() {
+    echo "Suitable for kids: $(echo "$1" | cut -d ":" -f6)"
+}
+
+# Function to retrieve the full line of game data from the file
+get_game_line() {
+    grep -i "^$1:" "$file"
+}
+
+# Display the list of available game files
+display_game_files
+
+# Prompt the user to enter a game name and check if it exists
+while true; do
+    echo -n "Enter the name of the game: "
+    read game_name
+
+    # Search for the game line in the file
+    line=$(get_game_line "$game_name")
+
+    if [ -z "$line" ]; then
+        echo "Game not found. Please try again."
+    else
+        echo "Game '$game_name' found!"
+        break
+    fi
+done
+
