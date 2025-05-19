@@ -70,4 +70,35 @@ while true; do
         break
     fi
 done
+# Display the menu using echo + read + case
+while true; do
+    echo "Menu:"
+    echo "1. Platform"
+    echo "2. Type"
+    echo "3. Payment Status"
+    echo "4. Internet Requirement"
+    echo "5. Kids Suitability"
+    echo "6. All Info"
+    echo "7. Exit"
+    echo -n "Enter your choice: "
+    read ch
+
+    case $ch in
+        1) show_platform "$line" ;;  # Display platform (Android/iOS)
+        2) show_game_type "$line" ;; # Display game type (Entertainment/Horror/Action)
+        3) show_payment_status "$line" ;; # Display if the game is Free or NotFree
+        4) show_internet_requirement "$line" ;; # Display if the game requires internet
+        5) show_kids_suitability "$line" ;; # Display if the game is suitable for kids
+        6)
+            show_platform "$line"
+            show_game_type "$line"
+            show_payment_status "$line"
+            show_internet_requirement "$line"
+            show_kids_suitability "$line"
+            break ;; # Display all information
+        7) echo "Goodbye"; exit 0 ;; # Exit the program
+        *) echo "Invalid choice. Please try again." ;; # Handle invalid input
+    esac
+    echo
+done
 
